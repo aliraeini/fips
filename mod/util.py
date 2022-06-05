@@ -45,7 +45,7 @@ def get_project_dir(fips_dir, proj_name) :
 def get_build_root_dir(fips_dir, proj_name):
     """get absolute path to the build root directory"""
     from mod import settings
-    proj_dir = get_project_dir(fips_dir, proj_name)
+    proj_dir = get_project_dir(os.getcwd(), proj_name)
     if settings.get(proj_dir, 'local'):
         return '{}/fips-files/build'.format(proj_dir)
     else:
@@ -55,7 +55,7 @@ def get_build_root_dir(fips_dir, proj_name):
 def get_deploy_root_dir(fips_dir, proj_name):
     """get absolute path to the build root directory"""
     from mod import settings
-    proj_dir = get_project_dir(fips_dir, proj_name)
+    proj_dir = get_project_dir(os.getcwd(), proj_name)
     if settings.get(proj_dir, 'local'):
         return '{}/fips-files/deploy'.format(proj_dir)
     else:

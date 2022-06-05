@@ -4,6 +4,6 @@ import os
 import sys
 from mod import fips
 fips_path = os.path.dirname(os.path.abspath(__file__))
-proj_path = fips_path
+proj_path = os.getcwd()
 fips.run(fips_path, proj_path, sys.argv)
 

@@ -60,6 +60,7 @@ def run_gen(cfg, fips_dir, project_dir, build_dir, local_build, toolchain_path, 
                 cmdLine += ' -D{}="{}"'.format(key, val)
     for key in defines :
         cmdLine += ' -D{}={}'.format(key, defines[key])
+    cmdLine += ' -DFIPS_ROOT_DIR=' + fips_dir
     cmdLine += ' -B' + build_dir
     cmdLine += ' -H' + project_dir
 

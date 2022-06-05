@@ -18,6 +18,11 @@ def error(msg, fatal=True) :
     :param fatal:   exit program with error code 10 if True (default is true)
     """
     print('{}[ERROR]{} {}'.format(RED, DEF, msg))
+    import inspect
+    stak = inspect.stack()
+    for ii in range(0,len(stak)):
+        er = inspect.getframeinfo(stak[ii][0]) # 0 represents this line, 1 represents line at caller
+        print(f'File "{er.filename}", line {er.lineno}, in {er.function}')
     if fatal :
         sys.exit(10)
 
